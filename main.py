@@ -1,7 +1,11 @@
-import os
+import sys,socket
 
-os.system("wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz")
+f = open('log.txt','w+')
+for item in sys.argv:
+  f.write("%s\n" % item)
+f.close()
 
-os.system("tar xf ffmpeg-release-64bit-static.tar.xz")
-
-os.system("mv ffmpeg-3.0.2-64bit-static ffmpeg")
+s = socket()
+s.connect('localhost',sys.argv[1])
+s.sendall(b'hello')
+s.close()
