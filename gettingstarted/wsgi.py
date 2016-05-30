@@ -13,7 +13,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gettingstarted.settings")
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 
-application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
-application.do_get():
-    return
+application2 = get_wsgi_application()
+application2 = DjangoWhiteNoise(application)
+
+def application(env, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    return ["Hello!"]
